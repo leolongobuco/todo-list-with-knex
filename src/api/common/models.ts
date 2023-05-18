@@ -7,10 +7,9 @@ export namespace Models {
 		description?: Nullable<string>
 		isDone: boolean
 		owner?: Nullable<string>
-		createdBy: string
 		userId: string
 		createdAt: Date
-		updatedAt: Date
+		updatedAt?: Nullable<Date>
 	}
 
 	export type User = {

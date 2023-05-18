@@ -18,4 +18,6 @@ export namespace Schemas {
 		z.object({
 			items: z.array(entity),
 		})
+
+	export type Object<T> = z.ZodObject<z.ZodRawShape, "strip", z.ZodType<T>, T, T>
 }
