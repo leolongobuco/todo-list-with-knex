@@ -1,15 +1,20 @@
+import { z } from "zod"
 import { Schemas } from "../../../lib/schemas"
-import { Validators } from "../../common/validators"
-import { CreateCardTypes } from "./create-card.types"
 
 export namespace CreateCardValidator {
-	export const body: Schemas.Object<CreateCardTypes.Request> = Validators.card.omit({
-		id: true,
-		createdAt: true,
-		updatedAt: true,
-	})
+	export const requestBody = z
+		.object({
+			isDone: z.boolean(),
+			description: z.string().optional(),
+			name: z.string(),
+			userId: z.string(),
+			owner: z.string().optional(),
+		})
+		.strict()
 
-	export const response: Schemas.Object<CreateCardTypes.Response> = Validators.card.pick({
-		id: true,
-	})
+	export const responseSuccess = z
+		.object({
+			id: Schemas.uuid,
+		})
+		.strict()
 }

@@ -1,8 +1,8 @@
-import { Erase } from "../../../lib/utility-types"
-import { Models } from "../../common/models"
+import { z } from "zod"
+import { CreateCardValidator } from "./create-card.validator"
 
 export namespace CreateCardTypes {
-	export type Request = Erase<Models.Card, "id" | "createdAt">
+	export type Request = z.infer<typeof CreateCardValidator.requestBody>
 
-	export type Response = Pick<Models.Card, "id">
+	export type Response = z.infer<typeof CreateCardValidator.responseSuccess>
 }
