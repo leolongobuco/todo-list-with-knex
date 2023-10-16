@@ -9,8 +9,8 @@ export namespace CardValidator {
 			isDone: z.boolean(),
 			description: z.string().optional(),
 			name: z.string(),
-			userId: z.string(),
-			owner: z.string().optional(),
+			userId: Schemas.uuid,
+			owner: Schemas.uuid.optional(),
 			createdAt: z.date(),
 			updatedAt: z.date(),
 		})
