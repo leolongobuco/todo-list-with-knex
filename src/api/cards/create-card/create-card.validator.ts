@@ -10,10 +10,4 @@ export namespace CreateCardValidator {
 			owner: Schemas.uuid.optional(),
 		})
 		.strict()
-
-	export const responseSuccess = z
-		.object({
-			id: Schemas.uuid,
-		})
-		.strict()
 }
